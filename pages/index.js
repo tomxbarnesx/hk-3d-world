@@ -51,7 +51,6 @@ export default function App() {
                                     maxWidth: '700px',
                                     position: 'absolute',
                                     left: '0',
-                                    padding: '1rem',
                                     zIndex: '1001',
                                 }}
                                 className={styles.bandcampChip}
