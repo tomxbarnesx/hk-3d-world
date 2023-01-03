@@ -19,7 +19,7 @@ export default function App() {
     return (
         <>
             <Head>
-                <title>HOT KNIVES 3D WORLD | Heavy primitive psych, FM static riffage</title>
+                <title>HOT KNIVES 3D WORLD | Heavy primitive psych, FM static noise</title>
             </Head>
             <main className={styles.main}>
                 <Nav />
