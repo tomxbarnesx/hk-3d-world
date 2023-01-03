@@ -8,3 +8,14 @@
     min-height: 100vh;
     height: 100vh;
 }
+
+.bandcampChip {
+    width: 100%;
+    bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .bandcampChip {
+        width: 33%;
+    }
+}

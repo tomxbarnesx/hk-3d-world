@@ -10,7 +10,8 @@ export default function Nav() {
                 height={52}
                 alt="Hot Knives coil logo"
             />
-            <span>Hot Knives</span>
+            <span>Hot</span>
+            <span>Knives</span>
         </nav>
     )
 }

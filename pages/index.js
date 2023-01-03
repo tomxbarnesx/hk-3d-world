@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import Head from 'next/head';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Loader } from '@react-three/drei';
@@ -9,6 +9,12 @@ import Nav from '../components/Nav/Nav';
 import styles from '../styles/Home.module.css';
 
 export default function App() {
+    const [mounted, setMounted] = useState();
+    useEffect(() => {
+        if (mounted === undefined) {
+            setMounted(true);
+        }
+    }, [mounted])
 
     return (
         <>
@@ -38,22 +44,31 @@ export default function App() {
                 </Canvas>
                 <Loader />
                 {
-                    // (typeof window !== "undefined")
-                    //     ?   <iframe 
-                    //             style={{
-                    //                 border: 0,
-                    //                 width: '35%', 
-                    //                 height: '42px',
-                    //                 position: 'absolute',
-                    //                 bottom: '1rem',
-                    //                 left: '1rem',
-                    //             }} 
-                    //             src="https://bandcamp.com/EmbeddedPlayer/album=1354859974/size=small/bgcol=333333/linkcol=e99708/transparent=true/" 
-                    //             seamless
-                    //         >
-                    //             <a href="https://hotknivesworld.bandcamp.com/album/making-love-to-make-music-to-make-love-to">Making Love To Make Music To Make Love To by Hot Knives</a>
-                    //         </iframe>
-                    //     : null
+                    (mounted)
+                        ?   
+                            <div
+                                style={{
+                                    maxWidth: '700px',
+                                    position: 'absolute',
+                                    left: '0',
+                                    padding: '1rem',
+                                    zIndex: '1001',
+                                }}
+                                className={styles.bandcampChip}
+                            >
+                                <iframe 
+                                    style={{
+                                        border: 0,
+                                        width: '100%',
+                                        height: '42px',
+                                    }} 
+                                    src="https://bandcamp.com/EmbeddedPlayer/album=1354859974/size=small/bgcol=333333/linkcol=e99708/transparent=true/" 
+                                    seamless
+                                >
+                                    <a href="https://hotknivesworld.bandcamp.com/album/making-love-to-make-music-to-make-love-to">Making Love To Make Music To Make Love To by Hot Knives</a>
+                                </iframe>
+                            </div>
+                        :   null
                 }
             </main>
         </>

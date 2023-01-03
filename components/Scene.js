@@ -1,10 +1,6 @@
 import { useGLTF, useDepthBuffer } from '@react-three/drei'
 import MovingSpot from '../components/MovingSpot';
-
-const red = '#b00c3f';
-const darkRed='#94094e';
-const yellow = '#FFFF00';
-const blue = '#0c8cbf';
+import { red, darkRed, blue } from '../utils/colors';
 
 export default function Scene() {
     // This is a super cheap depth buffer that only renders once (frames: 1 is optional!), which works well for static scenes
