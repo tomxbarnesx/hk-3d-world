@@ -1,0 +1,36 @@
+.platformTray {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    margin-right: 0.25rem;
+
+    .icon {
+        width: 30px;
+        margin-bottom: 0.5rem;
+        transition: transform 0.5s;
+        
+        &:hover {
+            transform: translateY(-3px);
+            filter: drop-shadow(2px 2px 1px #b00c3f)
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .platformTray {
+        margin-left: 1.5rem;
+        flex-direction: row;
+
+        .icon {
+            margin-bottom: 0;
+
+            &:not(:last-child) {            
+                margin-right: 1rem;
+            }
+
+            &:hover {
+                transform: translateX(-2px);
+            }
+        }
+    }
+}

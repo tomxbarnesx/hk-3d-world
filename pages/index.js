@@ -5,6 +5,7 @@ import { OrbitControls, Loader } from '@react-three/drei';
 
 import Scene from '../components/Scene';
 import Nav from '../components/Nav/Nav';
+import PlatformTray from '../components/PlatformTray/PlatformTray';
 
 import styles from '../styles/Home.module.css';
 
@@ -43,29 +44,25 @@ export default function App() {
                     />
                 </Canvas>
                 <Loader />
+                {/* <PlatformTray /> */}
                 {
                     (mounted)
                         ?   
-                            <div
-                                style={{
-                                    maxWidth: '700px',
-                                    position: 'absolute',
-                                    left: '0',
-                                    zIndex: '1001',
-                                }}
-                                className={styles.bandcampChip}
-                            >
-                                <iframe 
-                                    style={{
-                                        border: 0,
-                                        width: '100%',
-                                        height: '42px',
-                                    }} 
-                                    src="https://bandcamp.com/EmbeddedPlayer/album=1354859974/size=small/bgcol=333333/linkcol=e99708/transparent=true/" 
-                                    seamless
-                                >
-                                    <a href="https://hotknivesworld.bandcamp.com/album/making-love-to-make-music-to-make-love-to">Making Love To Make Music To Make Love To by Hot Knives</a>
-                                </iframe>
+                            <div className={styles.musicSocialTray}>
+                                <div className={styles.bandcampChip}>
+                                    <iframe 
+                                        style={{
+                                            border: 0,
+                                            width: '100%',
+                                            height: '42px',
+                                        }} 
+                                        src="https://bandcamp.com/EmbeddedPlayer/album=1354859974/size=small/bgcol=333333/linkcol=e99708/transparent=true/" 
+                                        seamless
+                                    >
+                                        <a href="https://hotknivesworld.bandcamp.com/album/making-love-to-make-music-to-make-love-to">Making Love To Make Music To Make Love To by Hot Knives</a>
+                                    </iframe>    
+                                </div>
+                                <PlatformTray />
                             </div>
                         :   null
                 }
