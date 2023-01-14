@@ -44,7 +44,6 @@ export default function App() {
                     />
                 </Canvas>
                 <Loader />
-                {/* <PlatformTray /> */}
                 {
                     (mounted)
                         ?   
@@ -56,11 +55,11 @@ export default function App() {
                                             width: '100%',
                                             height: '42px',
                                         }} 
-                                        src="https://bandcamp.com/EmbeddedPlayer/album=1354859974/size=small/bgcol=333333/linkcol=e99708/transparent=true/" 
+                                        src="https://bandcamp.com/EmbeddedPlayer/album=1354859974/size=small/bgcol=333333/linkcol=e99708/track=2263198745/transparent=true/" 
                                         seamless
                                     >
                                         <a href="https://hotknivesworld.bandcamp.com/album/making-love-to-make-music-to-make-love-to">Making Love To Make Music To Make Love To by Hot Knives</a>
-                                    </iframe>    
+                                    </iframe>
                                 </div>
                                 <PlatformTray />
                             </div>

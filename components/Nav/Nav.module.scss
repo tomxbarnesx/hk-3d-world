@@ -1,4 +1,4 @@
-// @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39&family=Wallpoet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Astloch:wght@400;700&family=Libre+Barcode+39&display=swap');
 
 .topNav {
     position: absolute;
@@ -15,7 +15,12 @@
         text-transform: uppercase;
         margin: 1rem 0rem 0rem;
         font-size: 1.5rem;
+        // font-weight: 700;
+        // font-family: 'Astloch', cursive;
         font-family: 'Libre Barcode 39', sans-serif;
+        // color: #f17405;
+        // color: orange;
+        color: white;
     }
 }
 

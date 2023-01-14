@@ -1,28 +1,27 @@
-import { useGLTF, useDepthBuffer } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import MovingSpot from '../components/MovingSpot';
 import { red, darkRed, blue } from '../utils/colors';
 
 export default function Scene() {
     // This is a super cheap depth buffer that only renders once (frames: 1 is optional!), which works well for static scenes
     // Spots can optionally use that for realism, learn about soft particles here: http://john-chapman-graphics.blogspot.com/2013/01/good-enough-volumetrics-for-spotlights.html
-    const depthBuffer = useDepthBuffer({ frames: 1 })
+    // const depthBuffer = useDepthBuffer({ frames: 1 })
+    // ADD TO <MOVING SPOT/> COMPONENT : depthBuffer={depthBuffer} 
+
     //   const { nodes, materials } = useGLTF('https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/dragon/model.gltf')
     const gltf = useGLTF('./assets/scene.gltf')
   
     return (
         <>
-            <MovingSpot 
-                depthBuffer={depthBuffer} 
+            <MovingSpot  
                 color={blue} 
                 position={[-2, 3, 2]} 
             />
-            <MovingSpot 
-                depthBuffer={depthBuffer} 
+            <MovingSpot  
                 color={red} 
                 position={[2, 3, 2]} 
             />
-            <MovingSpot 
-                depthBuffer={depthBuffer} 
+            <MovingSpot  
                 color={darkRed}
                 position={[0, 3, -3]} 
             />
