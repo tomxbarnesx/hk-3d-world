@@ -3,24 +3,37 @@ import Head from 'next/head';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Loader } from '@react-three/drei';
 
-import Scene from '../components/Scene';
+import Model from '../components/Model';
 import Nav from '../components/Nav/Nav';
 import PlatformTray from '../components/PlatformTray/PlatformTray';
-
+import MovingSpot from '../components/MovingSpot';
+import { red, darkRed, blue, yellow, green, teal, purple } from '../utils/colors';
+const colorsRandom = [blue, yellow, green, teal, purple];
 import styles from '../styles/Home.module.css';
 
 export default function App() {
     const [mounted, setMounted] = useState();
+    // const [colors, setColors] = useState([blue, red, darkRed]);
     useEffect(() => {
         if (mounted === undefined) {
             setMounted(true);
         }
     }, [mounted])
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
+    // const changeColors = () => {
+    //     const randomNumber = Math.floor(Math.random() * colorsRandom.length)
+    //     const randomColor = colorsRandom[randomNumber];
+    //     setColors([randomColor, red, darkRed,])
+    // }
+
     return (
         <>
             <Head>
-                <title>HOT KNIVES 3D WORLD | Heavy primitive psych, FM static noise</title>
+                <title>HOT KNIVES | Heavy primitive psych, FM static noise</title>
             </Head>
             <main className={styles.main}>
                 <Nav />
@@ -32,13 +45,38 @@ export default function App() {
                     <color attach="background" args={['#202020']} />
                     <fog attach="fog" args={['#202020', 5, 20]} />
                     <ambientLight intensity={0.015} />
+                    
+                    <MovingSpot  
+                        color={blue} 
+                        position={[-2, 3, 2]} 
+                    />
+                    <MovingSpot  
+                        color={red} 
+                        position={[2, 3, 2]} 
+                    />
+                    <MovingSpot  
+                        color={darkRed}
+                        position={[0, 3, -3]} 
+                    />
+                    
                     <Suspense fallback={null}>
-                        <Scene />
+                        <Model />
                     </Suspense>
+
+                    <mesh 
+                        receiveShadow 
+                        position={[-0.25, -1.85, -0.25]} 
+                        rotation-x={-Math.PI / 2}
+                    >
+                        <planeGeometry args={[50, 50]} />
+                        <meshPhongMaterial />
+                    </mesh>
+                    
                     <OrbitControls 
                         enablePan={false}
-                        enableZoom={false}
+                        enableZoom={true}
                         enableRotate={true}
+                        maxDistance={9}
                         minPolarAngle={Math.PI / 2.5}
                         maxPolarAngle={Math.PI / 2.5}
                     />
