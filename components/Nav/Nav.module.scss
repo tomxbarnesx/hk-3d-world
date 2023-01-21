@@ -67,6 +67,33 @@
     }
 }
 
+@media screen and (orientation: landscape) and (max-width: 768px) {
+    .topNav { 
+        flex-direction: row;
+
+        .nameContainer {
+            margin-left: 1rem;
+            position: relative;
+            color: white;
+            flex-direction: row;
+
+            .nameWrapper {
+                display: flex;
+
+                div {
+                    text-align: center;
+                    width: 1.75rem;
+                    margin: 0rem 0rem .75rem;
+    
+                    &.space {
+                        width: .75rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 768px) {
     .topNav {
         top: 1rem;
