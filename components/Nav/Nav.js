@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import BandNameTrail from '../BandNameTrail/BandNameTrail';
 import styles from './Nav.module.scss';
 
 export default function Nav({ handleClick }) {
@@ -10,9 +11,13 @@ export default function Nav({ handleClick }) {
                 height={66}
                 alt="Hot Knives coil logo"
                 onClick={handleClick}
+                priority
             />
-            <span>Hot</span>
-            <span>Knives</span>
+            <div className={styles.nameContainer}>
+                <BandNameTrail />
+                <BandNameTrail fontClass={[styles.cursive]} />
+                <BandNameTrail fontClass={[styles.cursive, styles.cursiveAccent]} />
+            </div>
         </nav>
     )
 }

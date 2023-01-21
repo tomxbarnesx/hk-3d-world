@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Loader } from '@react-three/drei';
 
+import useVhResize from '../utils/hooks/useVhResize';
+
 import Model from '../components/Model';
 import Nav from '../components/Nav/Nav';
 import PlatformTray from '../components/PlatformTray/PlatformTray';
@@ -14,6 +16,9 @@ import styles from '../styles/Home.module.css';
 export default function App() {
     const [mounted, setMounted] = useState();
     // const [colors, setColors] = useState([blue, red, darkRed]);
+    
+    useVhResize()
+    
     useEffect(() => {
         if (mounted === undefined) {
             setMounted(true);
@@ -71,7 +76,7 @@ export default function App() {
                         <planeGeometry args={[50, 50]} />
                         <meshPhongMaterial />
                     </mesh>
-                    
+
                     <OrbitControls 
                         enablePan={false}
                         enableZoom={true}
